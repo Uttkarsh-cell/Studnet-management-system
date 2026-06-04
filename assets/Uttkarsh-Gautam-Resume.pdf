@@ -1,0 +1,81 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 2544 >>
+stream
+0.06 0.09 0.16 rg 0 742 612 50 re f
+1 1 1 rg
+BT /F2 22 Tf 40 760 Td (UTTKARSH GAUTAM) Tj ET
+BT /F1 10 Tf 40 747 Td (Information Technology Student  |  Future Software Engineer) Tj ET
+0.1 0.12 0.2 rg
+BT /F1 9 Tf 40 720 Td (Email: uttkarsh.gautam@example.com   |   GitHub: github.com/Uttkarsh-cell   |   Ambedkar Nagar, UP, India) Tj ET
+0.23 0.51 0.96 rg
+BT /F2 13 Tf 40 695 Td (PROFILE) Tj ET
+0.23 0.51 0.96 RG 1 w 40 691 m 555 691 l S
+0.15 0.17 0.25 rg
+BT /F1 10 Tf 40 680 Td (IT undergraduate passionate about building elegant, high-performance web applications.) Tj ET
+BT /F1 10 Tf 40 668 Td (Strong in DSA, full-stack \(MERN\) development, and clean, scalable code.) Tj ET
+0.23 0.51 0.96 rg
+BT /F2 13 Tf 40 648 Td (EDUCATION) Tj ET
+0.23 0.51 0.96 RG 1 w 40 644 m 555 644 l S
+0.15 0.17 0.25 rg
+BT /F2 10 Tf 40 633 Td (B.Tech, Information Technology  -  Rajkiya Engineering College, Ambedkar Nagar \(AKTU\)) Tj ET
+BT /F1 9 Tf 40 621 Td (2022 - 2026   |   CGPA: 8.4 / 10) Tj ET
+0.23 0.51 0.96 rg
+BT /F2 13 Tf 40 600 Td (SKILLS) Tj ET
+0.23 0.51 0.96 RG 1 w 40 596 m 555 596 l S
+0.15 0.17 0.25 rg
+BT /F1 9 Tf 40 585 Td (Languages: C, C++, Java, Python, JavaScript) Tj ET
+BT /F1 9 Tf 40 573 Td (Web: HTML, CSS, React, Node.js, Express) Tj ET
+BT /F1 9 Tf 40 561 Td (Databases: MySQL, MongoDB    Tools: Git, GitHub, VS Code, Figma) Tj ET
+0.23 0.51 0.96 rg
+BT /F2 13 Tf 40 540 Td (PROJECTS) Tj ET
+0.23 0.51 0.96 RG 1 w 40 536 m 555 536 l S
+0.15 0.17 0.25 rg
+BT /F2 10 Tf 40 525 Td (Student Management System  -  React, Node.js, Express, MySQL) Tj ET
+BT /F1 9 Tf 40 513 Td (Full-stack CRUD platform with role-based access and admin dashboard.) Tj ET
+BT /F2 10 Tf 40 497 Td (E-Commerce Platform  -  MERN Stack) Tj ET
+BT /F1 9 Tf 40 485 Td (Catalog, cart, secure checkout, JWT auth, and inventory admin panel.) Tj ET
+BT /F2 10 Tf 40 469 Td (AI Chatbot  -  Python, Flask, NLP) Tj ET
+BT /F1 9 Tf 40 457 Td (Conversational assistant with intent detection and context memory.) Tj ET
+0.23 0.51 0.96 rg
+BT /F2 13 Tf 40 436 Td (EXPERIENCE & ACHIEVEMENTS) Tj ET
+0.23 0.51 0.96 RG 1 w 40 432 m 555 432 l S
+0.15 0.17 0.25 rg
+BT /F1 9 Tf 40 421 Td (- Web Development Intern \(2024\): built React UI, integrated REST APIs.) Tj ET
+BT /F1 9 Tf 40 409 Td (- Smart India Hackathon participant; Technical Club Coordinator.) Tj ET
+BT /F1 9 Tf 40 397 Td (- Solved 500+ DSA problems across LeetCode, GeeksforGeeks, HackerRank.) Tj ET
+0.55 0.6 0.7 rg
+BT /F1 8 Tf 40 60 Td (This is a placeholder resume generated for the portfolio website. Replace with your real PDF.) Tj ET
+
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000121 00000 n 
+0000000257 00000 n 
+0000002853 00000 n 
+0000002923 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+2998
+%%EOF

@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0F172A" />
+
+  <!-- Primary Meta Tags / SEO -->
+  <title>Uttkarsh Gautam — IT Student & Future Software Engineer | Portfolio</title>
+  <meta name="title" content="Uttkarsh Gautam — IT Student & Future Software Engineer" />
+  <meta name="description" content="Premium portfolio of Uttkarsh Gautam, an Information Technology student at REC Ambedkar Nagar (AKTU). Web developer, problem solver, and tech enthusiast. Explore projects, skills, achievements & resume." />
+  <meta name="keywords" content="Uttkarsh Gautam, portfolio, IT student, software engineer, web developer, React, Node.js, REC Ambedkar Nagar, AKTU" />
+  <meta name="author" content="Uttkarsh Gautam" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Uttkarsh Gautam — IT Student & Future Software Engineer" />
+  <meta property="og:description" content="Premium developer portfolio — projects, skills, achievements & resume." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon (inline SVG) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230F172A'/%3E%3Ctext x='50' y='68' font-size='56' font-family='Arial' font-weight='bold' fill='%233B82F6' text-anchor='middle'%3EUG%3C/text%3E%3C/svg%3E" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Shared SVG gradient defs (used by circular skill rings) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#3B82F6" />
+        <stop offset="100%" stop-color="#8B5CF6" />
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__logo">
+      <span class="preloader__mark">UG</span>
+      <div class="preloader__bar"><span></span></div>
+      <p class="preloader__text">Loading experience…</p>
+    </div>
+  </div>
+
+  <!-- Animated background -->
+  <div class="bg-canvas" aria-hidden="true">
+    <div class="bg-mesh"></div>
+    <div class="bg-blob bg-blob--1"></div>
+    <div class="bg-blob bg-blob--2"></div>
+    <div class="bg-blob bg-blob--3"></div>
+    <canvas id="particleCanvas"></canvas>
+    <div class="bg-grid"></div>
+  </div>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="navbar" id="navbar">
+    <nav class="nav container">
+      <a href="#home" class="nav__logo" aria-label="Uttkarsh Gautam home">
+        <span class="nav__logo-mark">UG</span>
+        <span class="nav__logo-text">Uttkarsh<span class="dot">.</span></span>
+      </a>
+
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="#home" class="nav__link active">Home</a></li>
+        <li><a href="#about" class="nav__link">About</a></li>
+        <li><a href="#education" class="nav__link">Education</a></li>
+        <li><a href="#skills" class="nav__link">Skills</a></li>
+        <li><a href="#projects" class="nav__link">Projects</a></li>
+        <li><a href="#experience" class="nav__link">Experience</a></li>
+        <li><a href="#achievements" class="nav__link">Awards</a></li>
+        <li><a href="#contact" class="nav__link">Contact</a></li>
+      </ul>
+
+      <div class="nav__actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="#contact" class="btn btn--ghost nav__cta">Let's Talk</a>
+        <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero section" id="home">
+      <div class="container hero__inner">
+        <div class="hero__content reveal">
+          <p class="hero__hello">
+            <span class="wave">👋</span> Hello, I'm
+          </p>
+          <h1 class="hero__name">
+            <span class="grad-text">UTTKARSH</span>
+            <span class="hero__lastname">GAUTAM</span>
+          </h1>
+          <div class="hero__role">
+            <span class="hero__role-prefix">I'm a</span>
+            <span class="typed" id="typed"></span>
+            <span class="typed-cursor">|</span>
+          </div>
+          <p class="hero__desc">
+            An Information Technology undergraduate passionate about crafting elegant,
+            high-performance web experiences. I turn ideas into clean, scalable code —
+            blending strong CS fundamentals with a designer's eye for detail.
+          </p>
+
+          <div class="hero__cta">
+            <a href="assets/Uttkarsh-Gautam-Resume.pdf" class="btn btn--primary magnetic" download>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download Resume
+            </a>
+            <a href="#projects" class="btn btn--outline magnetic">
+              View Projects
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+
+          <div class="hero__socials">
+            <a href="https://github.com/Uttkarsh-cell" target="_blank" rel="noopener" aria-label="GitHub" class="social-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21H9z"/></svg>
+            </a>
+            <a href="https://leetcode.com" target="_blank" rel="noopener" aria-label="LeetCode" class="social-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M13.5 2.6 7.3 9l6.2 6.4-1.6 1.7-7.9-8.1 7.9-8.1zM19 13.4H9.6v-2.4H19z"/></svg>
+            </a>
+            <a href="mailto:uttkarsh.gautam@example.com" aria-label="Email" class="social-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero__visual reveal">
+          <div class="hero__portrait-wrap">
+            <div class="hero__glow"></div>
+            <div class="hero__ring hero__ring--1"></div>
+            <div class="hero__ring hero__ring--2"></div>
+            <img
+              class="hero__portrait"
+              src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?auto=format&fit=crop&w=700&q=80"
+              alt="Portrait of Uttkarsh Gautam"
+              loading="eager"
+            />
+            <!-- Floating tech chips -->
+            <div class="float-chip float-chip--react" data-float="1">
+              <svg viewBox="-11.5 -10.23 23 20.46" width="22" height="22"><circle r="2.05" fill="#61dafb"/><g fill="none" stroke="#61dafb" stroke-width="1"><ellipse rx="11" ry="4.2"/><ellipse rx="11" ry="4.2" transform="rotate(60)"/><ellipse rx="11" ry="4.2" transform="rotate(120)"/></g></svg>
+              <span>React</span>
+            </div>
+            <div class="float-chip float-chip--js" data-float="2">
+              <span class="chip-square" style="background:#f7df1e;color:#000;">JS</span>
+              <span>JavaScript</span>
+            </div>
+            <div class="float-chip float-chip--node" data-float="3">
+              <span class="chip-square" style="background:#3c873a;color:#fff;">N</span>
+              <span>Node.js</span>
+            </div>
+            <div class="float-chip float-chip--py" data-float="4">
+              <span class="chip-square" style="background:#3776ab;color:#fff;">Py</span>
+              <span>Python</span>
+            </div>
+          </div>
+
+          <!-- Glass stat card -->
+          <div class="hero__glasscard glass">
+            <div class="hero__glasscard-row">
+              <span class="pulse-dot"></span>
+              <span>Open to internships & collaborations</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+        <span class="scroll-indicator__mouse"><span></span></span>
+        <span class="scroll-indicator__text">Scroll</span>
+      </a>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="about section" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">01 — About</span>
+          <h2 class="section-title">Get to <span class="grad-text">know me</span></h2>
+          <p class="section-subtitle">A short story about who I am and what drives me.</p>
+        </div>
+
+        <div class="about__grid">
+          <div class="about__bio reveal">
+            <div class="glass about__card">
+              <h3>Hi, I'm Uttkarsh 👨‍💻</h3>
+              <p>
+                I'm an Information Technology student at <strong>Rajkiya Engineering College,
+                Ambedkar Nagar</strong>, on a mission to become a software engineer who builds
+                products people love. I enjoy the entire journey — from sketching an idea, to
+                architecting the backend, to polishing the last pixel of the UI.
+              </p>
+              <p>
+                Outside of coursework, I sharpen my problem-solving on competitive platforms,
+                contribute to projects, and explore new frameworks. I believe great software is
+                equal parts <em>logic, design, and empathy</em>.
+              </p>
+
+              <div class="about__objective">
+                <h4>🎯 Career Objective</h4>
+                <p>
+                  To secure a challenging role in a forward-thinking tech company where I can
+                  apply my full-stack skills, grow as an engineer, and contribute to impactful,
+                  user-centric products.
+                </p>
+              </div>
+
+              <ul class="about__highlights">
+                <li><span class="check">✓</span> Full-stack web development (MERN)</li>
+                <li><span class="check">✓</span> Data Structures & Algorithms</li>
+                <li><span class="check">✓</span> Clean, scalable & accessible code</li>
+                <li><span class="check">✓</span> UI/UX design sensibility</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="about__stats reveal">
+            <div class="stat-card glass" data-tilt>
+              <span class="stat-card__num"><span class="counter" data-target="12">0</span>+</span>
+              <span class="stat-card__label">Projects Completed</span>
+            </div>
+            <div class="stat-card glass" data-tilt>
+              <span class="stat-card__num"><span class="counter" data-target="8">0</span>+</span>
+              <span class="stat-card__label">Certifications</span>
+            </div>
+            <div class="stat-card glass" data-tilt>
+              <span class="stat-card__num"><span class="counter" data-target="15">0</span>+</span>
+              <span class="stat-card__label">Technologies Learned</span>
+            </div>
+            <div class="stat-card glass" data-tilt>
+              <span class="stat-card__num"><span class="counter" data-target="8.4" data-decimals="1">0</span></span>
+              <span class="stat-card__label">Current CGPA</span>
+            </div>
+            <div class="stat-card glass stat-card--wide" data-tilt>
+              <span class="stat-card__num"><span class="counter" data-target="5">0</span>+</span>
+              <span class="stat-card__label">Hackathons Participated</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION ============ -->
+    <section class="education section" id="education">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">02 — Education</span>
+          <h2 class="section-title">My academic <span class="grad-text">journey</span></h2>
+          <p class="section-subtitle">Foundations that shape my engineering mindset.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content glass" data-tilt>
+              <div class="timeline__head">
+                <span class="timeline__period">2022 — 2026</span>
+                <span class="badge badge--blue">Pursuing</span>
+              </div>
+              <h3>Bachelor of Technology (B.Tech)</h3>
+              <p class="timeline__org">Rajkiya Engineering College, Ambedkar Nagar</p>
+              <p class="timeline__meta">Branch: <strong>Information Technology</strong></p>
+              <p class="timeline__meta">University: Dr. A.P.J. Abdul Kalam Technical University (AKTU)</p>
+              <div class="timeline__tags">
+                <span class="chip">DSA</span>
+                <span class="chip">DBMS</span>
+                <span class="chip">Operating Systems</span>
+                <span class="chip">Computer Networks</span>
+                <span class="chip">OOP</span>
+                <span class="chip">Web Technologies</span>
+              </div>
+              <p class="timeline__note">📊 Current CGPA: <strong>8.4 / 10</strong> · Consistent semester performance with distinction in core CS subjects.</p>
+            </div>
+          </div>
+
+          <div class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content glass" data-tilt>
+              <div class="timeline__head">
+                <span class="timeline__period">2020 — 2021</span>
+                <span class="badge badge--purple">Completed</span>
+              </div>
+              <h3>Senior Secondary (12th) — PCM</h3>
+              <p class="timeline__org">Higher Secondary School</p>
+              <p class="timeline__meta">Physics, Chemistry, Mathematics with Computer Science</p>
+              <p class="timeline__note">Built early interest in programming and logical problem-solving.</p>
+            </div>
+          </div>
+
+          <div class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content glass" data-tilt>
+              <div class="timeline__head">
+                <span class="timeline__period">2018 — 2019</span>
+                <span class="badge badge--purple">Completed</span>
+              </div>
+              <h3>Secondary (10th)</h3>
+              <p class="timeline__org">High School</p>
+              <p class="timeline__note">Strong academic foundation in mathematics and science.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="skills section" id="skills">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">03 — Skills</span>
+          <h2 class="section-title">My technical <span class="grad-text">arsenal</span></h2>
+          <p class="section-subtitle">Tools and technologies I use to bring ideas to life.</p>
+        </div>
+
+        <div class="skills__grid">
+          <!-- Programming Languages -->
+          <div class="skills__panel glass reveal">
+            <h3 class="skills__panel-title">💻 Programming Languages</h3>
+            <div class="skillbar"><div class="skillbar__top"><span>C</span><span>80%</span></div><div class="skillbar__track"><div class="skillbar__fill" data-level="80"></div></div></div>
+            <div class="skillbar"><div class="skillbar__top"><span>C++</span><span>85%</span></div><div class="skillbar__track"><div class="skillbar__fill" data-level="85"></div></div></div>
+            <div class="skillbar"><div class="skillbar__top"><span>Java</span><span>78%</span></div><div class="skillbar__track"><div class="skillbar__fill" data-level="78"></div></div></div>
+            <div class="skillbar"><div class="skillbar__top"><span>Python</span><span>82%</span></div><div class="skillbar__track"><div class="skillbar__fill" data-level="82"></div></div></div>
+            <div class="skillbar"><div class="skillbar__top"><span>JavaScript</span><span>88%</span></div><div class="skillbar__track"><div class="skillbar__fill" data-level="88"></div></div></div>
+          </div>
+
+          <!-- Circular charts -->
+          <div class="skills__panel glass reveal">
+            <h3 class="skills__panel-title">🌐 Core Proficiency</h3>
+            <div class="rings">
+              <div class="ring" data-percent="90">
+                <svg viewBox="0 0 120 120"><circle class="ring__bg" cx="60" cy="60" r="52"/><circle class="ring__fg" cx="60" cy="60" r="52"/></svg>
+                <div class="ring__label"><b class="ring__num">0%</b><span>Frontend</span></div>
+              </div>
+              <div class="ring" data-percent="80">
+                <svg viewBox="0 0 120 120"><circle class="ring__bg" cx="60" cy="60" r="52"/><circle class="ring__fg" cx="60" cy="60" r="52"/></svg>
+                <div class="ring__label"><b class="ring__num">0%</b><span>Backend</span></div>
+              </div>
+              <div class="ring" data-percent="75">
+                <svg viewBox="0 0 120 120"><circle class="ring__bg" cx="60" cy="60" r="52"/><circle class="ring__fg" cx="60" cy="60" r="52"/></svg>
+                <div class="ring__label"><b class="ring__num">0%</b><span>DSA</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Web dev -->
+          <div class="skills__panel glass reveal">
+            <h3 class="skills__panel-title">🚀 Web Development</h3>
+            <div class="skillbar"><div class="skillbar__top"><span>HTML5</span><span>92%</span></div><div class="skillbar__track"><div class="skillbar__fill" data-level="92"></div></div></div>
+            <div class="skillbar"><div class="skillbar__top"><span>CSS3</span><span>90%</span></div><div class="skillbar__track"><div class="skillbar__fill" data-level="90"></div></div></div>
+            <div class="skillbar"><div class="skillbar__top"><span>React</span><span>85%</span></div><div class="skillbar__track"><div class="skillbar__fill" data-level="85"></div></div></div>
+            <div class="skillbar"><div class="skillbar__top"><span>Node.js</span><span>80%</span></div><div class="skillbar__track"><div class="skillbar__fill" data-level="80"></div></div></div>
+            <div class="skillbar"><div class="skillbar__top"><span>Express</span><span>78%</span></div><div class="skillbar__track"><div class="skillbar__fill" data-level="78"></div></div></div>
+          </div>
+        </div>
+
+        <!-- Tech cards cloud -->
+        <div class="techcloud reveal">
+          <h3 class="techcloud__title">Databases &amp; Tools</h3>
+          <div class="techcloud__grid">
+            <div class="techcard" data-tilt><span class="chip-square" style="background:#00758f;color:#fff;">SQL</span><span>MySQL</span></div>
+            <div class="techcard" data-tilt><span class="chip-square" style="background:#13aa52;color:#fff;">M</span><span>MongoDB</span></div>
+            <div class="techcard" data-tilt><span class="chip-square" style="background:#f05032;color:#fff;">G</span><span>Git</span></div>
+            <div class="techcard" data-tilt><span class="chip-square" style="background:#181717;color:#fff;">GH</span><span>GitHub</span></div>
+            <div class="techcard" data-tilt><span class="chip-square" style="background:#007acc;color:#fff;">VS</span><span>VS Code</span></div>
+            <div class="techcard" data-tilt><span class="chip-square" style="background:#f24e1e;color:#fff;">Fi</span><span>Figma</span></div>
+            <div class="techcard" data-tilt><span class="chip-square" style="background:#3c873a;color:#fff;">N</span><span>Node.js</span></div>
+            <div class="techcard" data-tilt><span class="chip-square" style="background:#000;color:#fff;">Ex</span><span>Express</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="projects section" id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">04 — Projects</span>
+          <h2 class="section-title">Featured <span class="grad-text">work</span></h2>
+          <p class="section-subtitle">A selection of things I've designed, built, and shipped.</p>
+        </div>
+
+        <div class="projects__filters reveal" id="projectFilters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="web">Web</button>
+          <button class="filter-btn" data-filter="ai">AI / ML</button>
+          <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
+        </div>
+
+        <div class="projects__grid" id="projectsGrid">
+          <!-- 1 -->
+          <article class="project-card glass" data-category="fullstack" data-tilt>
+            <div class="project-card__media">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80" alt="Student Management System" />
+              <div class="project-card__overlay">
+                <a href="https://github.com/Uttkarsh-cell/Studnet-management-system" target="_blank" rel="noopener" class="iconbtn" aria-label="GitHub repo">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+                </a>
+                <a href="#" class="iconbtn" aria-label="Live demo">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">Student Management System</h3>
+              <p class="project-card__desc">A full-stack CRUD platform to manage student records, attendance, and grades with role-based access and a clean admin dashboard.</p>
+              <div class="project-card__stack">
+                <span class="chip">React</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">MySQL</span>
+              </div>
+              <div class="project-card__metrics">
+                <span>⭐ 1.2k records</span><span>👥 Multi-role</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2 -->
+          <article class="project-card glass" data-category="ai" data-tilt>
+            <div class="project-card__media">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=800&q=80" alt="AI Chatbot" />
+              <div class="project-card__overlay">
+                <a href="https://github.com/Uttkarsh-cell" target="_blank" rel="noopener" class="iconbtn" aria-label="GitHub repo"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg></a>
+                <a href="#" class="iconbtn" aria-label="Live demo"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">AI Chatbot</h3>
+              <p class="project-card__desc">A conversational assistant with NLP intent detection, context memory, and a sleek chat UI that answers FAQs in real time.</p>
+              <div class="project-card__stack"><span class="chip">Python</span><span class="chip">Flask</span><span class="chip">NLP</span><span class="chip">JavaScript</span></div>
+              <div class="project-card__metrics"><span>🤖 95% intent acc.</span><span>⚡ &lt;300ms</span></div>
+            </div>
+          </article>
+
+          <!-- 3 -->
+          <article class="project-card glass" data-category="web" data-tilt>
+            <div class="project-card__media">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=800&q=80" alt="Portfolio Website" />
+              <div class="project-card__overlay">
+                <a href="https://github.com/Uttkarsh-cell" target="_blank" rel="noopener" class="iconbtn" aria-label="GitHub repo"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg></a>
+                <a href="#" class="iconbtn" aria-label="Live demo"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">Portfolio Website</h3>
+              <p class="project-card__desc">This very site — a premium, animated, fully responsive portfolio built with semantic HTML, modern CSS, and vanilla JS.</p>
+              <div class="project-card__stack"><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">JavaScript</span></div>
+              <div class="project-card__metrics"><span>🎯 95+ Lighthouse</span><span>📱 Responsive</span></div>
+            </div>
+          </article>
+
+          <!-- 4 -->
+          <article class="project-card glass" data-category="fullstack" data-tilt>
+            <div class="project-card__media">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="E-Commerce Platform" />
+              <div class="project-card__overlay">
+                <a href="https://github.com/Uttkarsh-cell" target="_blank" rel="noopener" class="iconbtn" aria-label="GitHub repo"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg></a>
+                <a href="#" class="iconbtn" aria-label="Live demo"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">E-Commerce Platform</h3>
+              <p class="project-card__desc">A MERN shopping experience with product catalog, cart, secure checkout, and an admin panel for inventory management.</p>
+              <div class="project-card__stack"><span class="chip">MongoDB</span><span class="chip">Express</span><span class="chip">React</span><span class="chip">Node.js</span></div>
+              <div class="project-card__metrics"><span>🛒 Cart + Payments</span><span>🔐 JWT Auth</span></div>
+            </div>
+          </article>
+
+          <!-- 5 -->
+          <article class="project-card glass" data-category="web" data-tilt>
+            <div class="project-card__media">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1606857521015-7f9fcf423740?auto=format&fit=crop&w=800&q=80" alt="Attendance Management System" />
+              <div class="project-card__overlay">
+                <a href="https://github.com/Uttkarsh-cell" target="_blank" rel="noopener" class="iconbtn" aria-label="GitHub repo"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg></a>
+                <a href="#" class="iconbtn" aria-label="Live demo"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">Attendance Management System</h3>
+              <p class="project-card__desc">A smart attendance tracker with analytics dashboards, automated reports, and CSV export for faculty.</p>
+              <div class="project-card__stack"><span class="chip">PHP</span><span class="chip">MySQL</span><span class="chip">Bootstrap</span></div>
+              <div class="project-card__metrics"><span>📈 Analytics</span><span>📤 CSV Export</span></div>
+            </div>
+          </article>
+
+          <!-- 6 -->
+          <article class="project-card glass" data-category="ai" data-tilt>
+            <div class="project-card__media">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80" alt="ML Project" />
+              <div class="project-card__overlay">
+                <a href="https://github.com/Uttkarsh-cell" target="_blank" rel="noopener" class="iconbtn" aria-label="GitHub repo"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg></a>
+                <a href="#" class="iconbtn" aria-label="Live demo"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">Handwritten Digit Recognizer</h3>
+              <p class="project-card__desc">A CNN trained on MNIST that classifies handwritten digits in real time via an interactive canvas.</p>
+              <div class="project-card__stack"><span class="chip">Python</span><span class="chip">TensorFlow</span><span class="chip">NumPy</span></div>
+              <div class="project-card__metrics"><span>🎯 98.7% acc.</span><span>🧠 CNN</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="experience section" id="experience">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">05 — Experience</span>
+          <h2 class="section-title">Where I've <span class="grad-text">grown</span></h2>
+          <p class="section-subtitle">Internships, training, hackathons & leadership.</p>
+        </div>
+
+        <div class="timeline timeline--alt">
+          <div class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content glass" data-tilt>
+              <div class="timeline__head"><span class="timeline__period">2024</span><span class="badge badge--blue">Internship</span></div>
+              <h3>Web Development Intern</h3>
+              <p class="timeline__org">Tech Startup (Remote)</p>
+              <p class="timeline__note">Built responsive UI components in React, integrated REST APIs, and improved page performance by ~30%.</p>
+            </div>
+          </div>
+          <div class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content glass" data-tilt>
+              <div class="timeline__head"><span class="timeline__period">2024</span><span class="badge badge--purple">Hackathon</span></div>
+              <h3>Smart India Hackathon — Participant</h3>
+              <p class="timeline__org">National Level</p>
+              <p class="timeline__note">Prototyped a civic-tech solution in 36 hours with a 5-member team; reached the internal finals.</p>
+            </div>
+          </div>
+          <div class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content glass" data-tilt>
+              <div class="timeline__head"><span class="timeline__period">2023</span><span class="badge badge--blue">Training</span></div>
+              <h3>Full-Stack Development Bootcamp</h3>
+              <p class="timeline__org">Online Certification Program</p>
+              <p class="timeline__note">Completed an intensive MERN-stack program with 5+ hands-on projects.</p>
+            </div>
+          </div>
+          <div class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content glass" data-tilt>
+              <div class="timeline__head"><span class="timeline__period">2023</span><span class="badge badge--purple">Leadership</span></div>
+              <h3>Technical Club Coordinator</h3>
+              <p class="timeline__org">REC Ambedkar Nagar</p>
+              <p class="timeline__note">Organized coding workshops & tech talks, mentoring 50+ juniors in web development.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CERTIFICATIONS ============ -->
+    <section class="certs section" id="certifications">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">06 — Certifications</span>
+          <h2 class="section-title">Verified <span class="grad-text">credentials</span></h2>
+          <p class="section-subtitle">Continuous learning, certified.</p>
+        </div>
+
+        <div class="carousel reveal" id="certCarousel">
+          <button class="carousel__nav carousel__nav--prev" id="certPrev" aria-label="Previous">‹</button>
+          <div class="carousel__viewport">
+            <div class="carousel__track" id="certTrack">
+              <div class="cert-card glass">
+                <div class="cert-card__img"><img loading="lazy" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" alt="Full Stack Web Development certificate"/><span class="cert-badge">🏅</span></div>
+                <h3>Full-Stack Web Development</h3>
+                <p class="cert-card__org">Coursera · Meta</p>
+                <p class="cert-card__date">Issued 2024</p>
+                <a href="#" class="btn btn--mini">Verify</a>
+              </div>
+              <div class="cert-card glass">
+                <div class="cert-card__img"><img loading="lazy" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="DSA certificate"/><span class="cert-badge">🏅</span></div>
+                <h3>Data Structures &amp; Algorithms</h3>
+                <p class="cert-card__org">GeeksforGeeks</p>
+                <p class="cert-card__date">Issued 2024</p>
+                <a href="#" class="btn btn--mini">Verify</a>
+              </div>
+              <div class="cert-card glass">
+                <div class="cert-card__img"><img loading="lazy" src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=600&q=80" alt="React certificate"/><span class="cert-badge">🏅</span></div>
+                <h3>Advanced React</h3>
+                <p class="cert-card__org">Meta · Coursera</p>
+                <p class="cert-card__date">Issued 2024</p>
+                <a href="#" class="btn btn--mini">Verify</a>
+              </div>
+              <div class="cert-card glass">
+                <div class="cert-card__img"><img loading="lazy" src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" alt="Python certificate"/><span class="cert-badge">🏅</span></div>
+                <h3>Python for Everybody</h3>
+                <p class="cert-card__org">University of Michigan</p>
+                <p class="cert-card__date">Issued 2023</p>
+                <a href="#" class="btn btn--mini">Verify</a>
+              </div>
+              <div class="cert-card glass">
+                <div class="cert-card__img"><img loading="lazy" src="https://images.unsplash.com/photo-1544819667-9bfc1de23d4e?auto=format&fit=crop&w=600&q=80" alt="Database certificate"/><span class="cert-badge">🏅</span></div>
+                <h3>Database Management (SQL)</h3>
+                <p class="cert-card__org">Oracle Academy</p>
+                <p class="cert-card__date">Issued 2023</p>
+                <a href="#" class="btn btn--mini">Verify</a>
+              </div>
+            </div>
+          </div>
+          <button class="carousel__nav carousel__nav--next" id="certNext" aria-label="Next">›</button>
+        </div>
+        <div class="carousel__dots" id="certDots"></div>
+      </div>
+    </section>
+
+    <!-- ============ ACHIEVEMENTS ============ -->
+    <section class="achievements section" id="achievements">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">07 — Achievements</span>
+          <h2 class="section-title">Milestones &amp; <span class="grad-text">wins</span></h2>
+          <p class="section-subtitle">Moments I'm proud of.</p>
+        </div>
+
+        <div class="achv__grid">
+          <div class="achv-card glass reveal" data-tilt>
+            <span class="achv-card__icon">🏆</span>
+            <h3>Coding Competition Finalist</h3>
+            <p>Top 10 finish in an inter-college competitive programming contest.</p>
+          </div>
+          <div class="achv-card glass reveal" data-tilt>
+            <span class="achv-card__icon">💡</span>
+            <h3>Hackathon Recognition</h3>
+            <p>Built a working civic-tech prototype within 36 hours at SIH internal round.</p>
+          </div>
+          <div class="achv-card glass reveal" data-tilt>
+            <span class="achv-card__icon">🎤</span>
+            <h3>Technical Event Lead</h3>
+            <p>Led and hosted a campus-wide coding event with 200+ participants.</p>
+          </div>
+          <div class="achv-card glass reveal" data-tilt>
+            <span class="achv-card__icon">📚</span>
+            <h3>Academic Distinction</h3>
+            <p>Maintained a CGPA of 8.4 with top marks in core CS subjects.</p>
+          </div>
+          <div class="achv-card glass reveal" data-tilt>
+            <span class="achv-card__icon">🌟</span>
+            <h3>500+ DSA Problems</h3>
+            <p>Solved 500+ problems across LeetCode, GfG and HackerRank.</p>
+          </div>
+          <div class="achv-card glass reveal" data-tilt>
+            <span class="achv-card__icon">🤝</span>
+            <h3>Volunteer & Mentor</h3>
+            <p>Mentored 50+ juniors in web development through club workshops.</p>
+          </div>
+        </div>
+
+        <!-- Coding stats strip -->
+        <div class="codingstats glass reveal">
+          <div class="codingstats__item"><b class="counter" data-target="500">0</b><span>DSA Problems</span></div>
+          <div class="codingstats__item"><b class="counter" data-target="1200">0</b><span>GitHub Contributions</span></div>
+          <div class="codingstats__item"><b class="counter" data-target="30">0</b><span>Repositories</span></div>
+          <div class="codingstats__item"><b class="counter" data-target="350">0</b><span>LeetCode Solved</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESUME ============ -->
+    <section class="resume section" id="resume">
+      <div class="container">
+        <div class="resume__card glass reveal">
+          <div class="resume__left">
+            <span class="section-tag">08 — Resume</span>
+            <h2 class="section-title">My resume, <span class="grad-text">one click away</span></h2>
+            <p class="resume__desc">
+              Get the full picture of my education, skills, projects and experience in a
+              recruiter-friendly PDF. View it online or download a copy.
+            </p>
+            <div class="resume__cta">
+              <a href="assets/Uttkarsh-Gautam-Resume.pdf" class="btn btn--primary magnetic" download>
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download PDF
+              </a>
+              <a href="assets/Uttkarsh-Gautam-Resume.pdf" target="_blank" rel="noopener" class="btn btn--outline magnetic">View Online</a>
+            </div>
+          </div>
+          <div class="resume__preview">
+            <div class="resume__paper">
+              <div class="resume__paper-bar"></div>
+              <div class="resume__paper-line w80"></div>
+              <div class="resume__paper-line w60"></div>
+              <div class="resume__paper-line"></div>
+              <div class="resume__paper-line w90"></div>
+              <div class="resume__paper-line w70"></div>
+              <div class="resume__paper-tag">PDF</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="testimonials section" id="testimonials">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">09 — Testimonials</span>
+          <h2 class="section-title">Kind <span class="grad-text">words</span></h2>
+          <p class="section-subtitle">What mentors and teammates say.</p>
+        </div>
+
+        <div class="tcarousel reveal" id="testimonialCarousel">
+          <div class="tcarousel__track" id="testimonialTrack">
+            <figure class="tcard glass">
+              <div class="tcard__stars">★★★★★</div>
+              <blockquote>Uttkarsh is a quick learner with a sharp eye for detail. His project work consistently exceeds expectations and reflects genuine engineering maturity.</blockquote>
+              <figcaption class="tcard__author">
+                <img src="https://i.pravatar.cc/100?img=12" alt="" loading="lazy"/>
+                <div><b>Dr. R. Sharma</b><span>Faculty, IT Dept.</span></div>
+              </figcaption>
+            </figure>
+            <figure class="tcard glass">
+              <div class="tcard__stars">★★★★★</div>
+              <blockquote>A reliable teammate who takes ownership. During our hackathon he handled the full frontend single-handedly and kept the team motivated.</blockquote>
+              <figcaption class="tcard__author">
+                <img src="https://i.pravatar.cc/100?img=33" alt="" loading="lazy"/>
+                <div><b>Aman Verma</b><span>Hackathon Teammate</span></div>
+              </figcaption>
+            </figure>
+            <figure class="tcard glass">
+              <div class="tcard__stars">★★★★★</div>
+              <blockquote>His mentorship in our club's web-dev sessions was clear and patient. Juniors genuinely look up to him.</blockquote>
+              <figcaption class="tcard__author">
+                <img src="https://i.pravatar.cc/100?img=5" alt="" loading="lazy"/>
+                <div><b>Priya Singh</b><span>Club Member</span></div>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="tcarousel__controls">
+            <button class="tcarousel__btn" id="tPrev" aria-label="Previous testimonial">‹</button>
+            <div class="tcarousel__dots" id="tDots"></div>
+            <button class="tcarousel__btn" id="tNext" aria-label="Next testimonial">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact section" id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">10 — Contact</span>
+          <h2 class="section-title">Let's build <span class="grad-text">something</span></h2>
+          <p class="section-subtitle">Have an opportunity or idea? My inbox is always open.</p>
+        </div>
+
+        <div class="contact__grid">
+          <div class="contact__info reveal">
+            <a href="mailto:uttkarsh.gautam@example.com" class="contact-info-card glass" data-tilt>
+              <span class="contact-info-card__icon">✉️</span>
+              <div><b>Email</b><span>uttkarsh.gautam@example.com</span></div>
+            </a>
+            <a href="tel:+910000000000" class="contact-info-card glass" data-tilt>
+              <span class="contact-info-card__icon">📞</span>
+              <div><b>Phone</b><span>+91 00000 00000</span></div>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact-info-card glass" data-tilt>
+              <span class="contact-info-card__icon">in</span>
+              <div><b>LinkedIn</b><span>/in/uttkarsh-gautam</span></div>
+            </a>
+            <a href="https://github.com/Uttkarsh-cell" target="_blank" rel="noopener" class="contact-info-card glass" data-tilt>
+              <span class="contact-info-card__icon">🐙</span>
+              <div><b>GitHub</b><span>@Uttkarsh-cell</span></div>
+            </a>
+            <div class="contact-info-card glass" data-tilt>
+              <span class="contact-info-card__icon">📍</span>
+              <div><b>Location</b><span>Ambedkar Nagar, Uttar Pradesh, India</span></div>
+            </div>
+            <div class="contact__map glass">
+              <iframe
+                title="Location map"
+                src="https://www.google.com/maps?q=Ambedkar%20Nagar%20Uttar%20Pradesh&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+
+          <form class="contact__form glass reveal" id="contactForm" novalidate>
+            <div class="field">
+              <input type="text" id="name" name="name" placeholder=" " required />
+              <label for="name">Your Name</label>
+              <small class="field__error" data-for="name"></small>
+            </div>
+            <div class="field">
+              <input type="email" id="email" name="email" placeholder=" " required />
+              <label for="email">Email Address</label>
+              <small class="field__error" data-for="email"></small>
+            </div>
+            <div class="field">
+              <input type="tel" id="phone" name="phone" placeholder=" " />
+              <label for="phone">Phone (optional)</label>
+              <small class="field__error" data-for="phone"></small>
+            </div>
+            <div class="field">
+              <input type="text" id="subject" name="subject" placeholder=" " required />
+              <label for="subject">Subject</label>
+              <small class="field__error" data-for="subject"></small>
+            </div>
+            <div class="field">
+              <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
+              <label for="message">Message</label>
+              <small class="field__error" data-for="message"></small>
+            </div>
+            <button type="submit" class="btn btn--primary btn--block magnetic" id="submitBtn">
+              <span class="btn__label">Send Message</span>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+            <p class="contact__success" id="formSuccess" hidden>✅ Thanks! Your message has been sent. I'll get back to you soon.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#home" class="nav__logo">
+          <span class="nav__logo-mark">UG</span>
+          <span class="nav__logo-text">Uttkarsh<span class="dot">.</span></span>
+        </a>
+        <p>Information Technology student & aspiring software engineer building delightful digital experiences.</p>
+        <div class="footer__socials">
+          <a href="https://github.com/Uttkarsh-cell" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21H9z"/></svg></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="mailto:uttkarsh.gautam@example.com" class="social-icon" aria-label="Email"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer__links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+        </ul>
+      </div>
+      <div class="footer__links">
+        <h4>More</h4>
+        <ul>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__visitor">
+        <h4>Visitor Counter</h4>
+        <div class="visitor-count glass"><span id="visitorCount">0</span> visits</div>
+        <p class="footer__made">Crafted with <span class="heart">♥</span> &amp; lots of coffee.</p>
+      </div>
+    </div>
+
+    <div class="footer__bottom container">
+      <p>© <span id="year"></span> Uttkarsh Gautam. All rights reserved.</p>
+      <p>Designed &amp; built from scratch — no templates.</p>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
